@@ -1,3 +1,9 @@
+A start
+E end
+1 belt right
+2 belt left
+3 belt up
+4 belt down
 a grass.png 
 b grass_down_up_right_left.png 
 c grass_down_up.png 

@@ -8,7 +8,7 @@ from game_classes import GameMap, LAST_LEVEL, TILE_SIZE
 for i in range(LAST_LEVEL):  # Numero di livelli
     module = importlib.import_module(f'liv{i}')
     init_map.append(getattr(module, f'init_map{i}'))
-from draw import update_player, key_press, draw_map
+from draw import update_player, key_press, draw_map, check_belt
 from images import load_images
 
 # =========================
@@ -41,12 +41,12 @@ def start_level(game):
                     key_press(game, event.key)
             
             # Animazione uscita e refresh mappa se necessario
-            if game.number_coin == 0:
-                current_time = pygame.time.get_ticks()
-                if current_time - last_anim_time > 200:  # 200ms per frame
-                    game.frame_end = (game.frame_end + 1) % len(game.end_images)
-                    last_anim_time = current_time
-                    draw_map(game)
+            current_time = pygame.time.get_ticks()
+            if current_time - last_anim_time > 200:  # 200ms per frame
+                game.frame_end = (game.frame_end + 1) % len(game.end_images)
+                check_belt(game)
+                last_anim_time = current_time
+                draw_map(game)
 
             pygame.display.flip()
 

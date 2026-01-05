@@ -5,19 +5,17 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaCCCaaCCCaaCCCaaaaaaaaaaaaaa
-aaaaaaaaaaaaaCCJTTJCJTTJCCaaaaaaaaaaaaaa
-aaaaaaaaaaaaaCJJaaJJJaaJJCaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaTaaaaTaaaaTaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaTaaaaTaaaaTaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaCJJaaJJJaaJJCaaaaaaaaaaaaaa
-aaaaaaaaaaaaaCCJaaJEJaaJCCaaaaaaaaaaaaaa
-aaaaaaaaaaaaaCJJaaJJJaaJJCaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaTaaaaTaaaaTaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaTaaaaTaaaaTaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaJJJaaJJJaaJJCaaaaaaaaaaaaaa
-aaaaaaaaaaaaaJAJTTJCJTTJCCaaaaaaaaaaaaaa
-aaaaaaaaaaaaaJJJaaCCCaaCCCaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaJJJJaaCCCaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaJJJ8JJCCCaaaaaaaaaaaaaaaaa
+aaaaaaaaaJJJaaJaaJaaCCCaaaaaaaaaaaaaaaaa
+aaaaaaaaaJAJJJ8aaJaaa4aaaaaaaaaaaaaaaaaa
+aaaaaaaaaJJJaaaaaJJJJJJaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaJJ5a5Jaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaJJJaaJJ6C6Jaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaJEJJJJJ5a5Jaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaJJJaaJJJJJJaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -39,7 +37,7 @@ def in_bounds(r, c):
 # PARAMETRI
 # =========================
 
-VALID = set("EACJmnopqr")
+VALID = set("EACJmnopqr056789")
 
 RULES = {
     frozenset(["down", "up", "right", "left"]): "b",
