@@ -3,7 +3,7 @@ def init_map4(game):
     game.moving_left = 0
     game.moving_right = 0
     game.player_pos[0] = 20 * 32
-    game.player_pos[1] = 16 * 32
+    game.player_pos[1] = 15 * 32
     game.y_velocity = 0
     game.jumping = 0
     game.jolly[0] = 0
@@ -11,7 +11,6 @@ def init_map4(game):
     game.end = 0
 
     map_data = """\
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -30,8 +29,6 @@ aaaaaaaaaaaaaaaaaakJJJgaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaakJAJgaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaakJJJgaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaalllaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

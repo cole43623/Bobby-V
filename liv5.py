@@ -2,7 +2,7 @@
 def init_map5(game):
     game.moving_left = 0
     game.moving_right = 0
-    game.player_pos[0] = 20 * 32
+    game.player_pos[0] = 15 * 32
     game.player_pos[1] = 16 * 32
     game.y_velocity = 0
     game.jumping = 0
@@ -15,24 +15,21 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaadddaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaadddadhJJJgaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaakCJJTJJJEJgaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaakJflaljJJJgaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaTaadddcTcdddaaaaaaaa
-aaaaaaaaaaaaaaaaaaakJehCCJJJJJCCgaaaaaaa
-aaaaaaaaaaaaaaaaaaakCJJCCJrqoJCCgaaaaaaa
-aaaaaaaaaaaaaaaaaaaalljCCJJJJJCCgaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaallTcccTllaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaakCTTTCgaaaaaaaaa
-aaaaaaaaaaaaaaaaaaadddaadTcccTdaaaaaaaaa
-aaaaaaaaaaaaaaaaaakJJJehJJCCCJJgaaaaaaaa
-aaaaaaaaaaaaaaaaaakJAJJJJJCTCJJgaaaaaaaa
-aaaaaaaaaaaaaaaaaakJJJfjJJCCCJJgaaaaaaaa
-aaaaaaaaaaaaaaaaaaalllaalllllllaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaadddaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaadddadhJJJgaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaakCJJTJJJEJgaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaakJflaljJJJgaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaTaadddcTcdddaaaaaaaaaaaaa
+aaaaaaaaaaaaaakJehCCJJJJJCCgaaaaaaaaaaaa
+aaaaaaaaaaaaaakCJJCCJrqoJCCgaaaaaaaaaaaa
+aaaaaaaaaaaaaaalljCCJJJJJCCgaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaallTcccTllaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaakCTTTCgaaaaaaaaaaaaaa
+aaaaaaaaaaaaaadddaadTcccTdaaaaaaaaaaaaaa
+aaaaaaaaaaaaakJJJehJJCCCJJgaaaaaaaaaaaaa
+aaaaaaaaaaaaakJAJJJJJCTCJJgaaaaaaaaaaaaa
+aaaaaaaaaaaaakJJJfjJJCCCJJgaaaaaaaaaaaaa
+aaaaaaaaaaaaaalllaalllllllaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"""
