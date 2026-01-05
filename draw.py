@@ -65,6 +65,8 @@ def update_player(self, key):
         self.number_coin -= 1
         if self.number_coin == 0:
             pass
+
+    print(self.number_coin)
     if flag and self.layout[y_idx][x_idx] == 'T':
         self.layout[y_idx][x_idx] = 'S'
     draw_map(self)

@@ -34,6 +34,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"""
     # map to layout
+    game.number_coin = 0
     map_data = map_data.replace("\n", "").replace(" ", "")
     for i in range(game.lenrow):
         for j in range(game.lencol):

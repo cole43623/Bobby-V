@@ -37,7 +37,7 @@ class GameMap:
         self.inverted = False
 
         # stato gioco
-        self.liv = 6
+        self.liv = 0
         self.end = 0
         self.frame_end = 0
 
