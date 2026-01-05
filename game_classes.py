@@ -7,7 +7,7 @@
 # COSTANTI (equivalenti a #define)
 # ==========================
 TILE_SIZE = 32
-LAST_LEVEL = 5
+LAST_LEVEL = 6
 
 
 # ==========================
@@ -37,7 +37,7 @@ class GameMap:
         self.inverted = False
 
         # stato gioco
-        self.liv = 4
+        self.liv = 5
         self.end = 0
         self.frame_end = 0
 
