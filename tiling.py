@@ -7,19 +7,18 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaJJJJaaCCCaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaJJJ8JJCCCaaaaaaaaaaaaaaaaa
-aaaaaaaaaJJJaaJaaJaaCCCaaaaaaaaaaaaaaaaa
-aaaaaaaaaJAJJJ8aaJaaa4aaaaaaaaaaaaaaaaaa
-aaaaaaaaaJJJaaaaaJJJJJJaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaJJ5a5Jaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaJJJaaJJ6C6Jaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaJEJJJJJ5a5Jaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaJJJaaJJJJJJaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaa7TCT8aaaaaa-aaaaaaaaaaaaaaaaa
+aaaaaaaaaaaT7b7TaaaJJJCCaaaaaaaaaaaaaaaa
+aaaaaaaaaaETCCCTJ-J655CCaaaaaaaaaaaaaaaa
+aaaaaaaaaaaT9b9Taa+0++aaaaaaaaaaaaaaaaaa
+aaaaaaaaaaa6TCT9aaT70Taaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaJCTCJaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaJmJm4aaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaJmAm4aaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaJrqoJaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaJJJJJaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"""
 
@@ -37,7 +36,7 @@ def in_bounds(r, c):
 # PARAMETRI
 # =========================
 
-VALID = set("EACJmnopqr056789")
+VALID = set("EACJmnopqr6789+-*/")
 
 RULES = {
     frozenset(["down", "up", "right", "left"]): "b",
@@ -80,6 +79,66 @@ for r in range(ROWS):
 # =========================
 # OUTPUT
 # =========================
+
+
+
+def conta_iniziali(riga):
+    c = 0
+    for x in riga:
+        if x == 'a':
+            c += 1
+        else:
+            break
+    return c
+
+def conta_finali(riga):
+    c = 0
+    for x in reversed(riga):
+        if x == 'a':
+            c += 1
+        else:
+            break
+    return c
+
+def bilancia_righe_colonne(matrice):
+    a, b = 0, 0
+    for riga in matrice:
+        if (riga.count('a') == len(riga)):
+            a += 1
+        else:
+            break
+    for riga in matrice[::-1]:
+        if (riga.count('a') == len(riga)):
+            b += 1
+        else:
+            break
+    c = abs(b-a)//2
+    print(a,b,c)
+    if b > a:
+        for _ in range(c):
+            matrice.pop()
+            matrice.insert(0, ['a']*COLS)
+    elif a > b:
+        for _ in range(c):
+            matrice.pop(0)
+            matrice.append(['a']*COLS)
+
+    x, y = 9999,9999
+    for riga in matrice:
+        x = min(x, conta_iniziali(riga))
+        y = min(y, conta_finali(riga))
+    z = abs(y-x)//2
+    if y > x:
+        for i in range(len(matrice)):
+            matrice[i] = ["a"] * z + matrice[i][:COLS-z]
+    elif x > y:
+        for i in range(len(matrice)):
+            matrice[i] = matrice[i][z:] + ["a"] * z
+    return matrice
+
+
+
+new_grid = bilancia_righe_colonne(new_grid)
 
 for row in new_grid:
     print("".join(row))

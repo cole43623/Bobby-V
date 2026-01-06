@@ -61,6 +61,16 @@ def load_images(game):
     game.images["8"] = pygame.transform.scale(pygame.image.load("tiles/wall_right_up.png").convert_alpha(), (TILE_SIZE, TILE_SIZE))
     game.images["9"] = pygame.transform.scale(pygame.image.load("tiles/wall_right_down.png").convert_alpha(), (TILE_SIZE, TILE_SIZE))
     game.images["0"] = pygame.transform.scale(pygame.image.load("tiles/wall_up_down.png").convert_alpha(), (TILE_SIZE, TILE_SIZE))
+    game.images["+"] = pygame.transform.scale(pygame.image.load("tiles/red_button.png").convert_alpha(), (TILE_SIZE, TILE_SIZE))
+    game.images["-"] = pygame.transform.scale(pygame.image.load("tiles/red_button_pressed.png").convert_alpha(), (TILE_SIZE, TILE_SIZE))
+    game.images["*"] = pygame.transform.scale(pygame.image.load("tiles/yellow_button.png").convert_alpha(), (TILE_SIZE, TILE_SIZE))
+    game.images["/"] = pygame.transform.scale(pygame.image.load("tiles/yellow_button_pressed.png").convert_alpha(), (TILE_SIZE, TILE_SIZE))
+    game.images["("] = pygame.transform.scale(pygame.image.load("tiles/golden_key.png").convert_alpha(), (TILE_SIZE, TILE_SIZE))
+    game.images[")"] = pygame.transform.scale(pygame.image.load("tiles/golden_lock.png").convert_alpha(), (TILE_SIZE, TILE_SIZE))
+    game.images["["] = pygame.transform.scale(pygame.image.load("tiles/silver_key.png").convert_alpha(), (TILE_SIZE, TILE_SIZE))
+    game.images["]"] = pygame.transform.scale(pygame.image.load("tiles/silver_lock.png").convert_alpha(), (TILE_SIZE, TILE_SIZE))
+    game.images["{"] = pygame.transform.scale(pygame.image.load("tiles/copper_key.png").convert_alpha(), (TILE_SIZE, TILE_SIZE))
+    game.images["}"] = pygame.transform.scale(pygame.image.load("tiles/copper_lock.png").convert_alpha(), (TILE_SIZE, TILE_SIZE))
     game.player_images =  [game.images["left"], game.images["right"], game.images["up"], game.images["down"]]
     game.end_images =  [game.images["E"], game.images["E2"], game.images["E3"], game.images["E4"]]
     game.belt_right_images = [game.images["belt_right1"], game.images["belt_right2"], game.images["belt_right3"], game.images["belt_right4"]]

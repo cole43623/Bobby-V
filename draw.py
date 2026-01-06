@@ -32,6 +32,9 @@ def draw_map(self):
             put_image_to_image(self, img, j*TILE_SIZE, i*TILE_SIZE)
     put_image_to_image(self, self.player_images[self.direction - 1], self.player_pos[0], self.player_pos[1])
 
+    for i, key in enumerate(self.keys):
+        put_image_to_image(self, self.images[key], (self.lencol - 1 - i) * TILE_SIZE, 0)
+
 def is_end(self):
     px, py = self.player_pos
     # morte
@@ -48,41 +51,93 @@ def is_end(self):
         print("win")
         self.end = True
 
+def invert_button(self, x_idx, y_idx, flag):
+    if self.layout[y_idx][x_idx] == "+" and flag == 1:
+        self.layout[y_idx][x_idx] = "-"
+    elif self.layout[y_idx][x_idx] == "-" and flag == 1:
+        self.layout[y_idx][x_idx] = "+"
+    elif self.layout[y_idx][x_idx] == "*" and not flag:
+        self.layout[y_idx][x_idx] = "/"
+    elif self.layout[y_idx][x_idx] == "/" and not flag:
+        self.layout[y_idx][x_idx] = "*"
+    elif self.layout[y_idx][x_idx] == "1" and not flag:
+        self.layout[y_idx][x_idx] = "2"
+    elif self.layout[y_idx][x_idx] == "2" and not flag:
+        self.layout[y_idx][x_idx] = "1"
+    elif self.layout[y_idx][x_idx] == "3" and not flag:
+        self.layout[y_idx][x_idx] = "4"
+    elif self.layout[y_idx][x_idx] == "4" and not flag:
+        self.layout[y_idx][x_idx] = "3"
+
+
+
+    if self.layout[y_idx][x_idx] == 'T' and flag == 2:
+        self.layout[y_idx][x_idx] = 'S'
+    elif self.layout[y_idx][x_idx] == '5' and flag:
+        self.layout[y_idx][x_idx] = '0'
+    elif self.layout[y_idx][x_idx] == '0' and flag:
+        self.layout[y_idx][x_idx] = '5'
+    elif self.layout[y_idx][x_idx] in "6789" and flag:
+        self.layout[y_idx][x_idx] = str((int(self.layout[y_idx][x_idx]) - 5) % 4 + 6)
+
+def check_all(self, flag):
+    for i in range(self.lenrow):
+        for j in range(self.lencol):
+            invert_button(self, j, i, flag)
+
+
 def update_player(self, key):
     px, py = self.player_pos
     x_idx = int(px / TILE_SIZE)
     y_idx = int(py / TILE_SIZE)
     flag = False
 
+    locks = {')': '(', ']': '[', '}': '{'}
     if key == 1: # LEFT
-        if x_idx > 0 and self.layout[y_idx][x_idx - 1] in "ABCDEFGHIJKLMNOPQRSTUVWXYZ0167" and self.layout[y_idx][x_idx] not in "567":
-            flag = True
-            self.player_pos[0] -= 32
+        if x_idx > 0 and self.layout[y_idx][x_idx] not in "567":
+            if self.layout[y_idx][x_idx - 1] in locks and locks[self.layout[y_idx][x_idx - 1]] in self.keys:
+                self.keys.remove(locks[self.layout[y_idx][x_idx - 1]])
+                self.layout[y_idx][x_idx - 1] = 'J'
+            if self.layout[y_idx][x_idx - 1] in "ABCDEFGHIJKLMNOPQRSTUVWXYZ013467+-*/([{":
+                flag = True
+                self.player_pos[0] -= 32
     elif key == 2: # RIGHT
-        if x_idx < self.lencol - 1 and self.layout[y_idx][x_idx + 1] in "ABCDEFGHIJKLMNOPQRSTUVWXYZ0289"  and self.layout[y_idx][x_idx] not in "589":
-            flag = True
-            self.player_pos[0] += 32
+        if x_idx < self.lencol - 1 and self.layout[y_idx][x_idx] not in "589":
+            if self.layout[y_idx][x_idx + 1] in locks and locks[self.layout[y_idx][x_idx + 1]] in self.keys:
+                self.keys.remove(locks[self.layout[y_idx][x_idx + 1]])
+                self.layout[y_idx][x_idx + 1] = 'J'
+            if self.layout[y_idx][x_idx + 1] in "ABCDEFGHIJKLMNOPQRSTUVWXYZ023489+-*/([{":
+                flag = True
+                self.player_pos[0] += 32
     elif key == 3: # UP
-        if y_idx > 0 and self.layout[y_idx - 1][x_idx] in "ABCDEFGHIJKLMNOPQRSTUVWXYZ3578" and self.layout[y_idx][x_idx] not in "078":
-            self.player_pos[1] -= 32
-            flag = True
+        if y_idx > 0 and self.layout[y_idx][x_idx] not in "078":
+            if self.layout[y_idx - 1][x_idx] in locks and locks[self.layout[y_idx - 1][x_idx]] in self.keys:
+                self.keys.remove(locks[self.layout[y_idx - 1][x_idx]])
+                self.layout[y_idx - 1][x_idx] = 'J'
+            if y_idx > 0 and self.layout[y_idx - 1][x_idx] in "ABCDEFGHIJKLMNOPQRSTUVWXYZ123578+-*/([{":
+                self.player_pos[1] -= 32
+                flag = True
     elif key == 4: # DOWN
-        if y_idx < self.lenrow - 1 and self.layout[y_idx + 1][x_idx] in "ABCDEFGHIJKLMNOPQRSTUVWXYZ4569" and self.layout[y_idx][x_idx] not in "069":
-            self.player_pos[1] += 32
-            flag = True
+        if y_idx < self.lenrow - 1 and self.layout[y_idx][x_idx] not in "069":
+            if self.layout[y_idx + 1][x_idx] in locks and locks[self.layout[y_idx + 1][x_idx]] in self.keys:
+                self.keys.remove(locks[self.layout[y_idx + 1][x_idx]])
+                self.layout[y_idx + 1][x_idx] = 'J'
+            if y_idx < self.lenrow - 1 and self.layout[y_idx + 1][x_idx] in "ABCDEFGHIJKLMNOPQRSTUVWXYZ124569+-*/([{":
+                self.player_pos[1] += 32
+                flag = True
     if self.layout[self.player_pos[1]//32][self.player_pos[0]//32] == 'C':
         self.layout[self.player_pos[1]//32][self.player_pos[0]//32] = 'H'
         self.number_coin -= 1
+    elif self.layout[self.player_pos[1]//32][self.player_pos[0]//32] in '([{': 
+        self.keys.append(self.layout[self.player_pos[1]//32][self.player_pos[0]//32])
+        self.layout[self.player_pos[1]//32][self.player_pos[0]//32] = 'J'
 
     if flag:
-        if self.layout[y_idx][x_idx] == 'T':
-            self.layout[y_idx][x_idx] = 'S'
-        elif self.layout[y_idx][x_idx] == '5':
-            self.layout[y_idx][x_idx] = '0'
-        elif self.layout[y_idx][x_idx] == '0':
-            self.layout[y_idx][x_idx] = '5'
-        elif self.layout[y_idx][x_idx] in "6789":
-            self.layout[y_idx][x_idx] = str((int(self.layout[y_idx][x_idx]) - 5) % 4 + 6)
+        if self.layout[self.player_pos[1]//32][self.player_pos[0]//32] in "+":
+            check_all(self, 1)
+        elif self.layout[self.player_pos[1]//32][self.player_pos[0]//32] in "*":
+            check_all(self, 0)
+        invert_button(self, x_idx, y_idx, 2)
     is_end(self)
 
 def check_belt(self):
