@@ -5,19 +5,19 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaJAJaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaC0Taaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaT0Caaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaJ69Caaaaaaaaaaaaaa
-aaaaaaaaaaaaaaJJJJJJJJJa5aaaaaaaaaaaaaaa
-aaaaaaaaaaaaaJJpqqqnJJ009aaaaaaaaaaaaaaa
-aaaaaaaaaaaaaJJm+J-rqqqoaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaJJmJJJJCCCCaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaJJmT08aaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaJJmJ55aaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaEJTT99C-+aaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaJJ0085aaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaa69aaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaJAJaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaJJJJJaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaZpqnJaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaZrqoJaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaZZZZZaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaZZZZZaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaZZEZZaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaZZZZZaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"""
@@ -36,7 +36,7 @@ def in_bounds(r, c):
 # PARAMETRI
 # =========================
 
-VALID = set("EACJmnopqr6789+-*/()[]{}")
+VALID = set("EACJZmnopqr6789+-*/()[]{}")
 
 RULES = {
     frozenset(["down", "up", "right", "left"]): "b",

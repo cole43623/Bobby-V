@@ -131,6 +131,9 @@ def update_player(self, key):
     elif self.layout[self.player_pos[1]//32][self.player_pos[0]//32] in '([{': 
         self.keys.append(self.layout[self.player_pos[1]//32][self.player_pos[0]//32])
         self.layout[self.player_pos[1]//32][self.player_pos[0]//32] = 'J'
+    elif self.layout[self.player_pos[1]//32][self.player_pos[0]//32] == "Z": 
+        self.number_coin -= 1
+        self.layout[self.player_pos[1]//32][self.player_pos[0]//32] = 'z'
 
     if flag:
         if self.layout[self.player_pos[1]//32][self.player_pos[0]//32] in "+":

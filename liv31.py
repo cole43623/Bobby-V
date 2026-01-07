@@ -1,5 +1,5 @@
 
-def init_map27(game):
+def init_map31(game):
     game.moving_left = 0
     game.moving_right = 0
     game.player_pos[0] = 1 * 32
@@ -16,18 +16,18 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaadddadddadddaaaaaaaaaaaaa
-aaaaaaaaaaaaaaakCJJTJ/JTJJCgaaaaaaaaaaaa
-aaaaaaaaaaaaaaakJflacccaljJgaaaaaaaaaaaa
-aaaaaaaaaaaaaaakJgahCCCeakJgaaaaaaaaaaaa
-aaaaaaaaaaaaaadhJ2T*CCC/T1Jgaaaaaaaaaaaa
-aaaaaaaaaaaaaTJJ*gajCCCfak*gaaaaaaaaaaaa
-aaaaaaaaaaaakCroJeddcccddhJgaaaaaaaaaaaa
-aaaaaaaaaaaaaTJJ7CCCJEJCCC8gaaaaaaaaaaaa
-aaaaaaaaaaaaaaljJrqoJJJrqoJgaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaTCCTJAJTCCTaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaallkJJJgllaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaalllaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaadddaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaahJAJeaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaakJJJJJgaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaakZpqnJgaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaakZrqoJgaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaakZZZZZgaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaakZZZZZgaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaakZZEZZgaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaakZZZZZgaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaalllllaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -41,7 +41,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     for i in range(game.lenrow):
         for j in range(game.lencol):
             game.layout[i][j] = map_data[i*game.lencol + j]
-            if map_data[i*game.lencol + j] == 'C':
+            if map_data[i*game.lencol + j] in 'ZC':
                 game.number_coin += 1
             if map_data[i*game.lencol + j] == 'A':
                 game.player_pos[0] = j * 32
