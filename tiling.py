@@ -5,15 +5,15 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaAJJJZZZaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaJJmJZSZaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaJJmJ8JZaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaJZZJ5roaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaZZZZZZZ5Taaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaZZZZZZZ9Zaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaZZSZZaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaJZZZEaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaJAJaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaJJJJJaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaZpqnJaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaZrqoJaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaZZZZZaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaZZZZZaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaZZEZZaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaZZZZZaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -21,6 +21,25 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"""
+
+from game_classes import LAST_LEVEL
+import inspect
+import importlib
+import re
+
+# Carica dinamicamente il modulo dell'ultimo livello
+module_name = f'liv{LAST_LEVEL - 1}'
+module = importlib.import_module(module_name)
+source = inspect.getsource(module)
+
+# Estrae il contenuto di map_data usando una regex
+match = re.search(r'map_data = """\\\n(.*?)\"""', source, re.DOTALL)
+if match:
+    map_data = match.group(1)
+else:
+    # Fallback se la regex fallisce (es. formato leggermente diverso)
+    map_data = ""
+    print(f"Errore: map_data non trovata in {module_name}")
 
 # =========================
 # PREPARAZIONE MAPPA
@@ -113,7 +132,6 @@ def bilancia_righe_colonne(matrice):
         else:
             break
     c = abs(b-a)//2
-    print(a,b,c)
     if b > a:
         for _ in range(c):
             matrice.pop()
@@ -128,6 +146,7 @@ def bilancia_righe_colonne(matrice):
         x = min(x, conta_iniziali(riga))
         y = min(y, conta_finali(riga))
     z = abs(y-x)//2
+    print(a,b,c,"\t",x,y,z)
     if y > x:
         for i in range(len(matrice)):
             matrice[i] = ["a"] * z + matrice[i][:COLS-z]
