@@ -1,9 +1,10 @@
+from game_classes import TILE_SIZE
 
 def init_map3(game):
     game.moving_left = 0
     game.moving_right = 0
-    game.player_pos[0] = 15 * 32
-    game.player_pos[1] = 13 * 32
+    game.player_pos[0] = 15 * TILE_SIZE
+    game.player_pos[1] = 13 * TILE_SIZE
     game.y_velocity = 0
     game.jumping = 0
     game.jolly[0] = 0

@@ -1,9 +1,10 @@
+from game_classes import TILE_SIZE
 
 def init_map6(game):
     game.moving_left = 0
     game.moving_right = 0
-    game.player_pos[0] = 1 * 32
-    game.player_pos[1] = 1 * 32
+    game.player_pos[0] = 1 * TILE_SIZE
+    game.player_pos[1] = 1 * TILE_SIZE
     game.y_velocity = 0
     game.jumping = 0
     game.jolly[0] = 0
@@ -43,5 +44,5 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
             if map_data[i*game.lencol + j] in 'ZC':
                 game.number_coin += 1
             if map_data[i*game.lencol + j] == 'A':
-                game.player_pos[0] = j * 32
-                game.player_pos[1] = i * 32
+                game.player_pos[0] = j * TILE_SIZE
+                game.player_pos[1] = i * TILE_SIZE

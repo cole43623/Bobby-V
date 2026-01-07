@@ -1,6 +1,7 @@
 TEMPO = 0.2
 
 from game_classes import LAST_LEVEL, TILE_SIZE
+import pygame
 import time
 import importlib
 init_map = []
@@ -39,12 +40,14 @@ def is_end(self):
     px, py = self.player_pos
     # morte
     if self.layout[int((py+10)/TILE_SIZE)][int((px+5)/TILE_SIZE)] == 'S' or self.layout[int((py+10)/TILE_SIZE)][int((px+25)/TILE_SIZE)] == 'S':
+        draw_map(self)
+        pygame.display.flip()
         self.death_sound.play()
         print("dead")
         self.tot_dead += 1
-        init_map[self.liv](self)
         time.sleep(0.5)
-        draw_map(self)
+        init_map[self.liv](self)
+
     # vittoria
     elif self.number_coin == 0 and (self.layout[int((py+13)/TILE_SIZE)][int((px+5)/TILE_SIZE)] == 'E' or self.layout[int((py+13)/TILE_SIZE)][int((px+25)/TILE_SIZE)] == 'E'):
         self.win_sound.play()
@@ -100,7 +103,7 @@ def update_player(self, key):
                 self.layout[y_idx][x_idx - 1] = 'J'
             if self.layout[y_idx][x_idx - 1] in "ABCDEFGHIJKLMNOPQRSTUVWXYZ013467+-*/([{":
                 flag = True
-                self.player_pos[0] -= 32
+                self.player_pos[0] -= TILE_SIZE
     elif key == 2: # RIGHT
         if x_idx < self.lencol - 1 and self.layout[y_idx][x_idx] not in "589":
             if self.layout[y_idx][x_idx + 1] in locks and locks[self.layout[y_idx][x_idx + 1]] in self.keys:
@@ -108,14 +111,14 @@ def update_player(self, key):
                 self.layout[y_idx][x_idx + 1] = 'J'
             if self.layout[y_idx][x_idx + 1] in "ABCDEFGHIJKLMNOPQRSTUVWXYZ023489+-*/([{":
                 flag = True
-                self.player_pos[0] += 32
+                self.player_pos[0] += TILE_SIZE
     elif key == 3: # UP
         if y_idx > 0 and self.layout[y_idx][x_idx] not in "078":
             if self.layout[y_idx - 1][x_idx] in locks and locks[self.layout[y_idx - 1][x_idx]] in self.keys:
                 self.keys.remove(locks[self.layout[y_idx - 1][x_idx]])
                 self.layout[y_idx - 1][x_idx] = 'J'
             if y_idx > 0 and self.layout[y_idx - 1][x_idx] in "ABCDEFGHIJKLMNOPQRSTUVWXYZ123578+-*/([{":
-                self.player_pos[1] -= 32
+                self.player_pos[1] -= TILE_SIZE
                 flag = True
     elif key == 4: # DOWN
         if y_idx < self.lenrow - 1 and self.layout[y_idx][x_idx] not in "069":
@@ -123,22 +126,22 @@ def update_player(self, key):
                 self.keys.remove(locks[self.layout[y_idx + 1][x_idx]])
                 self.layout[y_idx + 1][x_idx] = 'J'
             if y_idx < self.lenrow - 1 and self.layout[y_idx + 1][x_idx] in "ABCDEFGHIJKLMNOPQRSTUVWXYZ124569+-*/([{":
-                self.player_pos[1] += 32
+                self.player_pos[1] += TILE_SIZE
                 flag = True
-    if self.layout[self.player_pos[1]//32][self.player_pos[0]//32] == 'C':
-        self.layout[self.player_pos[1]//32][self.player_pos[0]//32] = 'H'
+    if self.layout[self.player_pos[1]//TILE_SIZE][self.player_pos[0]//TILE_SIZE] == 'C':
+        self.layout[self.player_pos[1]//TILE_SIZE][self.player_pos[0]//TILE_SIZE] = 'H'
         self.number_coin -= 1
-    elif self.layout[self.player_pos[1]//32][self.player_pos[0]//32] in '([{': 
-        self.keys.append(self.layout[self.player_pos[1]//32][self.player_pos[0]//32])
-        self.layout[self.player_pos[1]//32][self.player_pos[0]//32] = 'J'
+    elif self.layout[self.player_pos[1]//TILE_SIZE][self.player_pos[0]//TILE_SIZE] in '([{': 
+        self.keys.append(self.layout[self.player_pos[1]//TILE_SIZE][self.player_pos[0]//TILE_SIZE])
+        self.layout[self.player_pos[1]//TILE_SIZE][self.player_pos[0]//TILE_SIZE] = 'J'
 
     if flag:
         if self.layout[y_idx][x_idx] == "Z":
             self.number_coin -= 1
             self.layout[y_idx][x_idx] = 'z'
-        if self.layout[self.player_pos[1]//32][self.player_pos[0]//32] in "+":
+        if self.layout[self.player_pos[1]//TILE_SIZE][self.player_pos[0]//TILE_SIZE] in "+":
             check_all(self, 1)
-        elif self.layout[self.player_pos[1]//32][self.player_pos[0]//32] in "*":
+        elif self.layout[self.player_pos[1]//TILE_SIZE][self.player_pos[0]//TILE_SIZE] in "*":
             check_all(self, 0)
         invert_button(self, x_idx, y_idx, 2)
     is_end(self)
@@ -176,5 +179,10 @@ def key_press(self, key):
         self.cheated+=1
         print("skipped")
         self.end = True
+    elif key == 107:
+        self.death_sound.play()
+        print("dead")
+        self.tot_dead += 1
+        init_map[self.liv](self)
     elif key == 27:
         exit(0)

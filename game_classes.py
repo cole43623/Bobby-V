@@ -7,7 +7,7 @@
 # COSTANTI (equivalenti a #define)
 # ==========================
 TILE_SIZE = 32
-LAST_LEVEL = 46
+LAST_LEVEL = 50
 
 
 # ==========================
@@ -32,12 +32,11 @@ class GameMap:
         self.direction = 1
         self.left_speed = -1.2
         self.right_speed = 1.2
-        self.jump_velocity = 0.8
         self.number_coin = 0
         self.keys = []
 
         # stato gioco
-        self.liv = LAST_LEVEL - 1
+        self.liv = 0
         self.end = 0
         self.frame_end = 0
 
