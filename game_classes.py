@@ -7,7 +7,7 @@
 # COSTANTI (equivalenti a #define)
 # ==========================
 TILE_SIZE = 32
-LAST_LEVEL = 34
+LAST_LEVEL = 46
 
 
 # ==========================

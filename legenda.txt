@@ -22,3 +22,6 @@ o fence_left.png
 p fence_right_down.png 
 q fence_right_left.png 
 r fence_right.png 
+
+pn
+ro

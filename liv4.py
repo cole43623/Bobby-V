@@ -39,5 +39,5 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"""
     for i in range(game.lenrow):
         for j in range(game.lencol):
             game.layout[i][j] = map_data[i*game.lencol + j]
-            if map_data[i*game.lencol + j] == 'C':
+            if map_data[i*game.lencol + j] in 'ZC':
                 game.number_coin += 1

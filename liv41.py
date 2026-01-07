@@ -1,5 +1,5 @@
 
-def init_map13(game):
+def init_map41(game):
     game.moving_left = 0
     game.moving_right = 0
     game.player_pos[0] = 1 * 32
@@ -15,27 +15,28 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaadddaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaTCCCTaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaakJfljJgaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaadddhJedhJgaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaakJCCC8CCCJgaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaakJfljJfljJgaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaahJeakJgahJeaaaaaaaaaaaaaaa
-aaaaaaaaaaaaakJJJghJekJJJgaaaaaaaaaaaaaa
-aaaaaaaaaaaaakJAJTC5CTJEJgaaaaaaaaaaaaaa
-aaaaaaaaaaaaakJJJgjJfkJJJgaaaaaaaaaaaaaa
-aaaaaaaaaaaaaajJfakJgajJfaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaakJedhJedhJgaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaakJCCC6CCCJgaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaalllllllllaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaadddddddaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaakJJJJJJJgaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaakJpqqqnJgaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaakJmJAJmJgaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaakJmZZZmJgaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaakJmZ4ZmJgaaaaaaaaaaaaa
+aaaaaaaaaaaaadddddhJmJZJmJeaaaaaaaaaaaaa
+aaaaaaaaaaaakJJJJJJJmJ4ZmJJgaaaaaaaaaaaa
+aaaaaaaaaaaakrqqqqqqo5J5rqngaaaaaaaaaaaa
+aaaaaaaaaaaakZZZSJJJJ956J[mgaaaaaaaaaaaa
+aaaaaaaaaaaakZZZZ8JpoJ{JmZmgaaaaaaaaaaaa
+aaaaaaaaaaaakZZZZZJmJJJJmZmgaaaaaaaaaaaa
+aaaaaaaaaaaakZZZ}SJ(8JEJ)Zmgaaaaaaaaaaaa
+aaaaaaaaaaaakrqoJJJZZ]rqqqogaaaaaaaaaaaa
+aaaaaaaaaaaaallllllllllllllaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 """
     # map to layout
     game.number_coin = 0
+    game.keys = []
     map_data = map_data.replace("\n", "").replace(" ", "")
     for i in range(game.lenrow):
         for j in range(game.lencol):
