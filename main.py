@@ -16,6 +16,11 @@ from images import load_images
 # =========================
 def start_level(game):
     pygame.init()
+    #music loop
+    pygame.mixer.init()
+    pygame.mixer.music.load("soundtrack.wav")
+    pygame.mixer.music.set_volume(0.05)
+    pygame.mixer.music.play(-1)
     game.death_sound = pygame.mixer.Sound("death.wav")
     game.win_sound = pygame.mixer.Sound("win.wav")
     
